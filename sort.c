@@ -11,7 +11,7 @@ int main()
     for(int i=0;i<n;i++){
         scanf(" %d",&alpha[i]);
     }
-    printf("Which sorting method you want to use :\nPress 0 for insertion sort\nPress 1 for bubble sort\nPress 2 for selection sort\nPress 3 for merge sort\n");
+    printf("Which sorting method you want to use :\nPress 0 for insertion sort\nPress 1 for bubble sort\nPress 2 for selection sort\nPress 3 for merge sort\nPress 4 for quick sort\n");
     scanf("%d",&choice);
     switch(choice){
     case 0:
@@ -78,6 +78,16 @@ int main()
     }
   }
     break;
+    case 4:
+    QuSort(alpha,0,n-1);
+    printf("\nQuick Sort Array result is : ");
+    for(int i = 0; i < n; i++) {
+    printf(" %d", alpha[i]);
+    if (i!=n-1){
+        printf(",");
+    }
+  }
+    break;
   default:
     printf("You have not chosen appropriate sorting method");
     break;
@@ -113,4 +123,32 @@ void merge(int a[],int l1,int r1,int l2,int r2) {
        a[l]=temp[r];
        
  
+}
+void QuSort(int arr[100],int start,int end){
+   int i, j, p, swap;
+ 
+   if(start<end){
+      p=start;
+      i=start;
+      j=end;
+ 
+      while(i<j){
+         while(arr[i]<=arr[p]&&i<end)
+            i++;
+         while(arr[j]>arr[p])
+            j--;
+         if(i<j){
+            swap=arr[i];
+            arr[i]=arr[j];
+            arr[j]=swap;
+         }
+      }
+ 
+      swap=arr[p];
+      arr[p]=arr[j];
+      arr[j]=swap;
+      QuSort(arr,start,j-1);
+      QuSort(arr,j+1,end);
+ 
+   }
 }
