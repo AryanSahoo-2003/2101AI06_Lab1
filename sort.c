@@ -1,6 +1,7 @@
 #include <stdio.h>
 void mergesort(int a[],int l,int r);
 void merge(int a[],int l1,int r1,int l2,int r2);
+void QuSort(int arr[100],int start,int end);
 int main()
  {
     int n,element,choice,position;
