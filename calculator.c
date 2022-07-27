@@ -7,12 +7,15 @@ int main()
     printf("Please enter the first number and second number with a space : ");
     scanf("%lf",&a);
     scanf("%lf",&b);
-    printf("Choose from the following operations to be applied :- '+' ");
+    printf("Choose from the following operations to be applied :- '+','-' ");
     scanf(" %c", &c);
     switch (c)
     {
     case '+':
       result=a+b;
+      break;
+   case '-':
+      result=a-b;
       break;
     default:
     printf("You have not chosen appropriate operation");
