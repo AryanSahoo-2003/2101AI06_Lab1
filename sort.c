@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
  {
-    int n,element,choice;
+    int n,element,choice,position;
     printf("Please enter the number of integers in the list you want to sort:- ");
     scanf("%d",&n);
     int alpha[n];
@@ -9,7 +9,7 @@ int main()
     for(int i=0;i<n;i++){
         scanf(" %d",&alpha[i]);
     }
-    printf("Which sorting method you want to use :\nPress 0 for insertion sort\nPress 1 for bubble sort\n");
+    printf("Which sorting method you want to use :\nPress 0 for insertion sort\nPress 1 for bubble sort\nPress 2 for selection sort\n");
     scanf("%d",&choice);
     switch(choice){
     case 0:
@@ -46,6 +46,29 @@ int main()
     }
   } 
    break;
+   case 2:
+   for (int i = 0; i < (n- 1); i++) {
+   position = i;
+   for (int j = i + 1; j < n; j++) {
+    if (alpha[position] > alpha[j])
+      position = j;
+   }
+   if (position != i) {
+     element = alpha[i];
+     alpha[i] = alpha[position];
+     alpha[position] = element;
+   }
+ }
+ printf("Sorted list in ascending order is ");
+ for(int i = 0; i < n; i++) {
+    printf(" %d", alpha[i]);
+    if (i!=n-1){
+        printf(",");
+    }
+  } break;
+  case 3:
+  
+    break;
   default:
     printf("You have not chosen appropriate sorting method");
     break;
