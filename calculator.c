@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 int main()
  {
     double a,b;
@@ -7,7 +8,7 @@ int main()
     printf("Please enter the first number and second number with a space : ");
     scanf("%lf",&a);
     scanf("%lf",&b);
-    printf("Choose from the following operations to be applied :- '+','-','*','/' ");
+    printf("Choose from the following operations to be applied :- '+','-','*','/','^' ");
     scanf(" %c", &c);
     switch (c)
     {
@@ -23,10 +24,13 @@ int main()
     case '/':
       result=a/b;
       break;
+    case '^':
+      result =pow(a,b);
+      break;
     default:
     printf("You have not chosen appropriate operation");
       break;
     };
-    printf("The application of operation %c on two numbers yield result : %.3lf",c,result);
+    printf("The result of %lf %c %lf is : %.3lf",a,c,b,result);
     return 0;
  }
