@@ -9,7 +9,7 @@ int main()
     for(int i=0;i<n;i++){
         scanf(" %d",&alpha[i]);
     }
-    printf("Which sorting method you want to use :\nPress 0 for insertion sort\n");
+    printf("Which sorting method you want to use :\nPress 0 for insertion sort\nPress 1 for bubble sort\n");
     scanf("%d",&choice);
     switch(choice){
     case 0:
@@ -28,6 +28,24 @@ int main()
     }
   } 
   break;
+   case 1:
+   for(int i = 0 ; i < n - 1; i++) {
+     for(int j = 0 ; j < n-i-1; j++) {
+      if(alpha[j] > alpha[j+1]) {
+         element = alpha[j];
+         alpha[j] = alpha[j+1];
+         alpha[j+1] = element;
+       }
+    }
+}  
+   printf("\nBubble Sort Result is ");
+   for(int i = 0; i < n; i++) {
+    printf(" %d", alpha[i]);
+    if (i!=n-1){
+        printf(",");
+    }
+  } 
+   break;
   default:
     printf("You have not chosen appropriate sorting method");
     break;
